@@ -1,105 +1,144 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <style>
+        .select2-selection__rendered {
+            line-height: 31px !important;
+        }
+        
+        .select2-container .select2-selection--single {
+            height: 35px !important;
+        }
+        
+        .select2-selection__arrow {
+            height: 34px !important;
+        }
+    </style>
 
     <title>Kalkulator-IFM</title>
-  </head>
-  <body class="container-fluid p-3">
-    <h4 class="text-center">
-     Convert Palet ke CAR
+</head>
 
-    </h4>
-    <hr>
-    <form>
-    <div class="form-group">
-    <label for="produk">Produk :</label>
-    <select class="form-control">
-     <option value="" selected disabled>-- Pilih Produk --</option>
-     <option value="40">CBL-CHE*16</option>
-     <option value="24">CBL-CHE*55</option>
-     <option value="24">CBL-CHE*200</option>
-     <option value="40">CBL-CHO*16</option>
-     <option value="24">CBL-CHO*55</option>
-     <option value="24">CBL-CHO*200</option>
-     <option value="40">CBL-CHN*16</option>
-     <option value="24">CBL-CHN*55</option>
-     <option value="24">CBL-CHN*200</option>
-     <option value="54">PRP-Crunch*10</option>
-     <option value="120">PRP-STA*15</option>
-     <option value="120">PRP-BLUE*15</option>
-     <option value="120">PRP-BNN*15</option>
-     <option value="120">PRP-PEACH*15</option>
-     <option value="40">CTW-ROC*23</option> 
-     <option value="42">CTW-ROC*40</option> 
-     <option value="24">CTW-ROC*75</option>
-     <option value="42">CTW-CHG*40</option> 
-     <option value="24">CTW-CHG*75</option>  
-     <option value="40">MAX-ROC*20</option>
-     <option value="24">MAX-ROC*55</option>
-     <option value="24">MAX-ROC*150</option>
-     <option value="24">MAX-BBQ*55</option>
-     <option value="24">MAX-BBQ*150</option>
-     <option value="24">MAX-NAC*150</option>
-     <option value="40">CTL-NOS*14</option>
-     <option value="40">CTL-NOS*18</option>
-     <option value="30">CTL-NOS*35</option>
-     <option value="24">CTL-NOS*68</option>
-     <option value="24">CTL-NOS*120</option>
-     <option value="30">CTL-NOS*168</option>
-     <option value="24">CTL-BBQ*68</option>
-     <option value="24">CTL-SAT*68</option>
-     <option value="40">CTT-BEB*15</option>
-     <option value="40">CTT-BEB*19</option>
-     <option value="30">CTT-BEB*35</option>
-     <option value="32">CTT-BEB*55</option>
-     <option value="24">CTT-BEB*68</option> 
-     <option value="24">CTT-BEB*120</option>
-     <option value="30">CTT-BEB*168</option>
-     <option value="30">CTT-SPC*35</option>
-     <option value="24">CTT-SPC*68</option>
-     <option value="30">CTT-SPC*168</option>
-     <option value="30">CTT-SGB*35</option>
-     <option value="24">CTT-SGB*68</option>
-     <option value="24">CTT-FRN*68</option>
-     <option value="24">CTT-PLS*68</option>
-     <option value="24">CTT-CHB*68</option>
-    </select>
+<body>
+    <div class="row justify-content-center p-3">
+        <div class="col-lg-12">
+            <h4 class="text-center">~ Convert Palet ke CAR ~</h4>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <form>
+                <div class="form-group">
+                    <label for="produk">Produk :</label>
+                    <select class="form-control select2" name="produk">
+                        <option value="" selected disabled></option>
+                        <optgroup label="Chiki Ball">
+                            <option value="40">CBL - CHE 16</option>
+                            <option value="24">CBL - CHE 55</option>
+                            <option value="24">CBL - CHE 200</option>
+                            <option value="40">CBL - CHO 16</option>
+                            <option value="24">CBL - CHO 55</option>
+                            <option value="24">CBL - CHO 200</option>
+                            <option value="40">CBL - CHN 16</option>
+                            <option value="24">CBL - CHN 55</option>
+                            <option value="24">CBL - CHN 200</option>
+                        </optgroup>
+                        <optgroup label="Promina">
+                            <option value="54">PRP - Crunch 10</option>
+                            <option value="120">PRP - STA 15</option>
+                            <option value="120">PRP - BLUE 15</option>
+                            <option value="120">PRP - BNN 15</option>
+                            <option value="120">PRP - PEACH 15</option>
+                        </optgroup>
+                        <optgroup label="Chiki Twist">
+                            <option value="40">CTW - ROC 23</option>
+                            <option value="42">CTW - ROC 40</option>
+                            <option value="24">CTW - ROC 75</option>
+                            <option value="42">CTW - CHG 40</option>
+                            <option value="24">CTW - CHG 75</option>
+                        </optgroup>
+                        <optgroup label="Maxicorn">
+                            <option value="40">MAX - ROC 20</option>
+                            <option value="24">MAX - ROC 55</option>
+                            <option value="24">MAX - ROC 150</option>
+                            <option value="24">MAX - BBQ 55</option>
+                            <option value="24">MAX - BBQ 150</option>
+                            <option value="24">MAX - NAC 150</option>
+                        </optgroup>
+                        <optgroup label="Chitato Lite">
+                            <option value="40">CTL - NOS 14</option>
+                            <option value="40">CTL - NOS 18</option>
+                            <option value="30">CTL - NOS 35</option>
+                            <option value="24">CTL - NOS 68</option>
+                            <option value="24">CTL - NOS 120</option>
+                            <option value="30">CTL - NOS 168</option>
+                            <option value="24">CTL - BBQ 68</option>
+                            <option value="24">CTL - SAT 68</option>
+                        </optgroup>
+                        <optgroup label="Chitato">
+                            <option value="40">CTT - BEB 15</option>
+                            <option value="40">CTT - BEB 19</option>
+                            <option value="30">CTT - BEB 35</option>
+                            <option value="32">CTT - BEB 55</option>
+                            <option value="24">CTT - BEB 68</option>
+                            <option value="24">CTT - BEB 120</option>
+                            <option value="30">CTT - BEB 168</option>
+                            <option value="30">CTT - SPC 35</option>
+                            <option value="24">CTT - SPC 68</option>
+                            <option value="30">CTT - SPC 168</option>
+                            <option value="30">CTT - SGB 35</option>
+                            <option value="24">CTT - SGB 68</option>
+                            <option value="24">CTT - CHB 68</option>
+                            <option value="24">CTT - CHS 68</option>
+                            <option value="24">CTT - FRN 68</option>
+                            <option value="24">CTT - PLS 68</option>
+                            <option value="24">CTT - SCO 68</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Jumlah Palet :</label>
+                    <input type="text" autocomplete="off" class="form-control" name="jumlah" placeholder="Masukan Jumlah Palet" />
+                </div>
+
+                <div class="form-group mt-4" id="content-akhiran">
+                    <label>Akhiran ( optional ) :</label>
+                    <div class="input-group mb-2">
+                        <input type="text" autocomplete="off" class="form-control" placeholder="Akhiran ( optional )" aria-label="Akhiran ( optional )" aria-describedby="basic-addon2" name="akhiran[]" />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="add_akhiran">
+                              <i class="fa fa-plus"></i>
+                          </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="reset" class="btn btn-secondary btn-block" id="btn-reset">Reset</button>
+            </form>
+
+            <div class="card mt-4">
+                <div class="card-header text-center">Output</div>
+                <div class="card-body text-center">
+                    <h4 id="text-info"></h4>
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <a href="index.html" class="text-center">Convert CAR ke Palet >></a>
+        </div>
     </div>
-
-    <div class="form-group">
-    <label>Jumlah Palet :</label>
-    <input type="text" class="form-control" placeholder="Masukan jumlah Palet">
-    </div>
-
-    <div class="form-group">
-    <label>Jumlah Akhiran (optional) :</label>
-    <input type="text" class="form-control" placeholder="Jumlah Akhiran">
-    </div>
-
-    <button type="button" class="btn btn-primary">Submit</button>
-    <button type="reset" class="btn btn-secondary">Reset</button> 
-
-    <div class="card mt-3">
-     <div class="card-header text-center">
-      Output 
-     </div>
-     <div class="card-body text-center">
-      <h4>
-       25 + 8 &nbsp;=>&nbsp; 1.250 CAR
-      </h4>
-     </div>
-    </div>
-   
-    </form>
-    <br>
-    <br>
-    <a href="index.html">Convert CAR ke Palet >></>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -108,9 +147,159 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-     $(document).ready(){
-      alert('hello world');
-     });
+        $(document).ready(function() {
+
+            $(".select2").select2({
+                placeholder: "Pilih Produk",
+
+            });
+
+            $('[name="produk"]').change(function() {
+                loadData();
+            });
+
+            $('[name="jumlah"]').keyup(function() {
+                var result = parseInt($(this).val().replace(".", ""));
+                if (result) {
+                    $(this).val(result.toLocaleString("ID"));
+                } else {
+                    $(this).val("");
+                }
+
+                loader();
+
+                _changeInterval = null;
+                clearInterval(_changeInterval);
+                _changeInterval = setInterval(function() {
+                    loadData();
+                    clearInterval(_changeInterval);
+                }, 2500);
+            });
+
+            $(`#content-akhiran`).on(
+                "keyup",
+                'input[name="akhiran[]"]',
+                function() {
+                    var result = parseInt($(this).val().replace(".", ""));
+                    if (result) {
+                        $(this).val(result.toLocaleString("ID"));
+                    } else {
+                        $(this).val("");
+                    }
+
+                    loader();
+
+                    _changeInterval = null;
+                    clearInterval(_changeInterval);
+                    _changeInterval = setInterval(function() {
+                        loadData();
+                        clearInterval(_changeInterval);
+                    }, 2500);
+                }
+            );
+
+            $("#add_akhiran").click(function() {
+                var __CONTENT = `
+                    <div class="input-group mb-2 reset-akhiran">
+                        <input type="text" autocomplete="off"  class="form-control" placeholder="Akhiran ( optional )" aria-label="Akhiran ( optional )" aria-describedby="basic-addon2" name="akhiran[]">
+                        <div class="input-group-append">
+                            <button class="btn btn-danger remove_akhiran" type="button"><i class="fa fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+
+                $("#content-akhiran").append(__CONTENT);
+            });
+
+            $(`#content-akhiran`).on(
+                "click",
+                '.remove_akhiran',
+                function() {
+                    $(this).parent().parent().remove();
+
+                    loader();
+
+                    _changeInterval = null;
+                    clearInterval(_changeInterval);
+                    _changeInterval = setInterval(function() {
+                        loadData();
+                        clearInterval(_changeInterval);
+                    }, 2500);
+                }
+            );
+
+
+            $('#btn-reset').click(function() {
+                $('[name="produk"]').val('').trigger('change');
+                $('.reset-akhiran').remove();
+
+                $('#text-info').html('');
+            })
+
+            function loader() {
+                $("#text-info").html(`
+                    <h4 class="fas fa-spinner fa-spin"></h4>
+                `);
+            }
+
+            function loadData() {
+                var produk = parseInt($('[name="produk"] option:selected').val());
+                var jumlah = parseInt($('[name="jumlah"]').val().replace(".", ""));
+
+                if (!jumlah) {
+                    jumlah = 0;
+                }
+
+                var total = 0;
+                var jumlah_akhiran = 0;
+
+                var akhiran = $("input[name='akhiran[]']")
+                    .map(function() {
+                        return $(this).val();
+                    })
+                    .get();
+
+                $.each(akhiran, function(el, val) {
+                    if (parseInt(val)) {
+                        jumlah_akhiran += parseInt(val.replace(".", ""));
+                    }
+                });
+
+                var text = ``;
+
+                // perhitungan akhiran melebihi ukuran palet
+                var condition = true;
+                while (condition) {
+                    if (jumlah_akhiran >= produk) {
+                        jumlah++;
+                        jumlah_akhiran -= produk;
+                    } else {
+                        condition = false;
+                    }
+                }
+
+                if (jumlah && jumlah_akhiran) {
+                    text = jumlah + " &nbsp;+&nbsp; " + jumlah_akhiran;
+
+                    total = (jumlah * produk) + jumlah_akhiran;
+                } else {
+                    if (jumlah) {
+                        text = jumlah + " ";
+                        total = (jumlah * produk);
+                    } else {
+                        text = jumlah_akhiran + " CAR ";
+                        total = jumlah_akhiran;
+                    }
+                }
+
+                if (produk && (jumlah || jumlah_akhiran)) {
+                    $('#text-info').html(text + " &nbsp; => &nbsp; " + (total).toLocaleString('ID') + ' CAR ');
+                } else {
+                    $('#text-info').html('');
+                }
+            }
+        });
     </script>
-  </body>
+</body>
+
 </html>
