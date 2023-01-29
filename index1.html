@@ -161,7 +161,11 @@
             });
 
             $('[name="produk"]').change(function() {
-                loadData();
+                // loadData();
+                $('[name="jumlah"]').val('');
+                $('input[name="akhiran[]"]').val('');
+                $('#content-akhiran .reset-akhiran').remove();
+                $('#text-info').html('');
             });
 
             $('[name="jumlah"]').keyup(function() {

@@ -166,7 +166,12 @@
             });
 
             $('[name="produk"]').change(function() {
-                loadData();
+                // loadData();
+                $('[name="jumlah"]').val('');
+                $('[name="cut_off"]').val('');
+                $('input[name="beda_gis[]"]').val('');
+                $('.reset-beda-gis').remove();
+                $('#text-info').html('');
             });
 
             $('[name="jumlah"]').keyup(function() {
