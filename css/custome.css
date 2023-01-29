@@ -1,0 +1,27 @@
+ .select2-selection__rendered {
+     line-height: 31px !important;
+ }
+ 
+ .select2-container .select2-selection--single {
+     height: 35px !important;
+ }
+ 
+ .select2-selection__arrow {
+     height: 34px !important;
+ }
+ 
+ .select2-container,
+ .form-control {
+     border: 1px solid black;
+     border-radius: 0.25rem;
+     font-size: 21px !important;
+ }
+ 
+ .select2-container--default .select2-results__option .select2-results__option {
+     padding-left: 1em;
+     border-bottom: 1px dashed rgb(218, 218, 218);
+ }
+ 
+ label {
+     font-weight: bold;
+ }
