@@ -36,18 +36,6 @@
         label {
             font-weight: bold !important;
         }
-        
-        .select2-selection__rendered {
-            line-height: 36px !important;
-        }
-        
-        .select2-container .select2-selection--single {
-            height: 40px !important;
-        }
-        
-        .select2-selection__arrow {
-            height: 39px !important;
-        }
     </style>
 
     <!-- Google Fonts -->
@@ -58,10 +46,6 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
-
-    <!-- Select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 
 <body data-theme-color="color-blue">
@@ -69,7 +53,7 @@
 
         <!-- Header -->
         <header class="header">
-            <div class="main-bar" style="z-index: 100;">
+            <div class="main-bar">
                 <div class="container">
                     <div class="header-content">
                         <div class="left-content">
@@ -119,6 +103,18 @@
                     <a class="nav-link" href="index.html">
                         <span class="dz-icon bg-pink light"><i class="fa fa-solid fa-house"></i></span>
                         <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="produk.html">
+                        <span class="dz-icon bg-blue light"><i class="fa fa-list"></i></span>
+                        <span>Produk</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="account_user.html">
+                        <span class="dz-icon bg-blue light"><i class="fa fa-users"></i></span>
+                        <span>Account User</span>
                     </a>
                 </li>
                 <li>
@@ -193,9 +189,6 @@
                                 <div class="card">
                                     <div class="card-header border-0 pb-0 p-2">
                                         <h5 class="card-title">1. CTL NOS 15</h5>
-                                        <a href="">
-                                            <span class="dz-icon bg-blue light"><i class="fa fa-solid fa-pencil"></i></span>
-                                        </a>
                                     </div>
                                     <div class="card-body p-1">
                                         <table class="table" style="margin-bottom: 0px;">
@@ -236,9 +229,6 @@
                                 <div class="card">
                                     <div class="card-header border-0 pb-0 p-2">
                                         <h5 class="card-title">2. CTL NOS 68</h5>
-                                        <a href="">
-                                            <span class="dz-icon bg-blue light"><i class="fa fa-solid fa-pencil"></i></span>
-                                        </a>
                                     </div>
                                     <div class="card-body p-1">
                                         <table class="table" style="margin-bottom: 0px;">
@@ -278,10 +268,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header border-0 pb-0 p-2">
-                                        <h5 class="card-title">3. CTT FRN 68</h5>
-                                        <a href="">
-                                            <span class="dz-icon bg-blue light"><i class="fa fa-solid fa-pencil"></i></span>
-                                        </a>
+                                        <h5 class="card-title">3. CTT FRN 68 <span class="badge badge-primary me-1 mb-1 m-l10">Export</span></h5>
                                     </div>
                                     <div class="card-body p-1">
                                         <table class="table" style="margin-bottom: 0px;">
@@ -322,9 +309,6 @@
                                 <div class="card">
                                     <div class="card-header border-0 pb-0 p-2">
                                         <h5 class="card-title">4. CTT BEB 19 <span class="badge badge-danger me-1 mb-1 m-l10">Cut Off</span></h5>
-                                        <a href="">
-                                            <span class="dz-icon bg-blue light"><i class="fa fa-solid fa-pencil"></i></span>
-                                        </a>
                                     </div>
                                     <div class="card-body p-1">
                                         <table class="table" style="margin-bottom: 0px;">
@@ -362,131 +346,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-12 m-t30">
-                            <button type="button" class="btn w-100 btn-primary mb-2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="fa fa-light fa-plus"></i> &nbsp; Produk Transfer</button>
-                        </div>
-
-                        <!-- Example Modal -->
-                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="myModal">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Tambah Data</h5>
-                                        <button class="btn-close" data-bs-dismiss="modal">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <form action="">
-                                                <div class="form-group m-b20">
-                                                    <label>Nomor DOC : </label>
-                                                    <input type="text" class="form-control" name="nomor_doc">
-                                                </div>
-                                                <div class="form-group m-b20">
-                                                    <label>Nomor Bacth : </label>
-                                                    <input type="text" class="form-control" name="nomor_bacth">
-                                                </div>
-                                                <div class="form-group m-b20">
-                                                    <label for="produk">Produk :</label>
-                                                    <select class="form-control select2" name="produk" id="mySelect" style="width: 100% !important; height: 20px !important;">
-                                                        <option value="" selected disabled></option>
-                                                        <optgroup label="Chiki Ball">
-                                                            <option value="40">CBL CHE 16</option>
-                                                            <option value="24">CBL CHE 55</option>
-                                                            <option value="24">CBL CHE 200</option>
-                                                            <option value="40">CBL CHO 16</option>
-                                                            <option value="24">CBL CHO 55</option>
-                                                            <option value="24">CBL CHO 200</option>
-                                                            <option value="40">CBL CHN 16</option>
-                                                            <option value="24">CBL CHN 55</option>
-                                                            <option value="24">CBL CHN 200</option>
-                                                        </optgroup>
-                                                        <optgroup label="Promina">
-                                                            <option value="54">PRP Crunch 10</option>
-                                                            <option value="120">PRP STA 15</option>
-                                                            <option value="120">PRP BLUE 15</option>
-                                                            <option value="120">PRP BNN 15</option>
-                                                            <option value="120">PRP PEACH 15</option>
-                                                        </optgroup>
-                                                        <optgroup label="Chiki Twist">
-                                                            <option value="40">CTW ROC 23</option>
-                                                            <option value="42">CTW ROC 40</option>
-                                                            <option value="24">CTW ROC 75</option>
-                                                            <option value="42">CTW CHG 40</option>
-                                                            <option value="24">CTW CHG 75</option>
-                                                        </optgroup>
-                                                        <optgroup label="Maxicorn">
-                                                            <option value="40">MAX ROC 20</option>
-                                                            <option value="24">MAX ROC 55</option>
-                                                            <option value="24">MAX ROC 150</option>
-                                                            <option value="24">MAX BBQ 55</option>
-                                                            <option value="24">MAX BBQ 150</option>
-                                                            <option value="24">MAX NAC 150</option>
-                                                        </optgroup>
-                                                        <optgroup label="Chitato Lite">
-                                                            <option value="40">CTL NOS 14</option>
-                                                            <option value="40">CTL NOS 18</option>
-                                                            <option value="30">CTL NOS 35</option>
-                                                            <option value="24">CTL NOS 68</option>
-                                                            <option value="24">CTL NOS 120</option>
-                                                            <option value="30">CTL NOS 168</option>
-                                                            <option value="24">CTL BBQ 68</option>
-                                                            <option value="24">CTL SAT 68</option>
-                                                        </optgroup>
-                                                        <optgroup label="Chitato">
-                                                            <option value="40">CTT BEB 15</option>
-                                                            <option value="40">CTT BEB 19</option>
-                                                            <option value="30">CTT BEB 35</option>
-                                                            <option value="32">CTT BEB 55</option>
-                                                            <option value="24">CTT BEB 68</option>
-                                                            <option value="24">CTT BEB 120</option>
-                                                            <option value="30">CTT BEB 168</option>
-                                                            <option value="30">CTT SPC 35</option>
-                                                            <option value="24">CTT SPC 68</option>
-                                                            <option value="30">CTT SPC 168</option>
-                                                            <option value="30">CTT SGB 35</option>
-                                                            <option value="24">CTT SGB 68</option>
-                                                            <option value="24">CTT CHB 68</option>
-                                                            <option value="24">CTT CHS 68</option>
-                                                            <option value="24">CTT FRN 68</option>
-                                                            <option value="24">CTT PLS 68</option>
-                                                            <option value="24">CTT SCO 68</option>
-                                                        </optgroup>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group m-b20">
-                                                    <label>Jumlah Depo : </label>
-                                                    <input type="text" class="form-control currency" name="depo">
-                                                </div>
-                                                <div class="form-group m-b20">
-                                                    <label>Jumlah SMG : </label>
-                                                    <input type="text" class="form-control currency" name="smg">
-                                                </div>
-                                                <div class="form-group m-b20">
-                                                    <label>Jumlah DS : </label>
-                                                    <input type="text" class="form-control currency" name="ds">
-                                                </div>
-                                                <div class="form-check check-box">
-                                                    <input class="form-check-input" type="checkbox" value="" id="check3">
-                                                    <label class="form-check-label" for="check3">Produk Hasil Cut Off</label>
-                                                    <i class="check-1 far fa-square"></i>
-                                                    <i class="check-2 far fa-check-square"></i>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a href="detail_serah_terima.html" class="btn btn-block btn-primary">Simpan</a>
-                                        <button type="button" class="btn btn-block btn-danger light" data-bs-dismiss="modal">Batal</button>
-                                        <!-- <button type="button" class="btn btn-block btn-primary">Simpan</button> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal End -->
-
                     </div>
                 </div>
             </div>
@@ -501,10 +360,10 @@
                     <i class="fa fa-home" aria-hidden="true"></i>
                 </a>
                 <a href="serah_terima.html" class="nav-link active">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    <i class="fa fa-book" aria-hidden="true"></i>
                 </a>
-                <a href="#" class="nav-link ">
-                    <i class=" fa fa-light fa-calendar-days"></i>
+                <a href="account_user.html" class="nav-link">
+                    <i class=" fa fa-light fa-users"></i>
                 </a>
                 <a href="#" class="menu-toggler ">
                     <svg width="24 " height="24 " viewBox="0 0 24 24 " fill="none " xmlns="http://www.w3.org/2000/svg ">
@@ -549,37 +408,8 @@
     <script src="../assets/js/settings.js "></script>
     <script src="../assets/js/custom.js "></script>
     <script src="index.js " defer></script>
-    <!-- Select2 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script>
-        function formatOutput(optionElement) {
-            if (!optionElement.id) {
-                return optionElement.text;
-            }
-            console.log(optionElement);
-            var $state = $('<span>' + optionElement.text + '<small style="float: right; margin-top: 7px; color: #d0d0d0;">' + optionElement.element.value + '</small></span>');
-            return $state;
-        };
-
-        $(document).ready(function() {
-            $('#mySelect').select2({
-                dropdownParent: $('#myModal'),
-                placeholder: "-- Pilih Produk --",
-                templateResult: formatOutput,
-            });
-
-            $('.currency').keyup(function() {
-                var result = parseInt($(this).val().replace(".", ""));
-                if (result) {
-                    $(this).val(result.toLocaleString("ID"));
-                } else {
-                    $(this).val("");
-                }
-            });
-        })
-    </script>
 </body>
 
+<!-- Mirrored from jobie.dexignzone.com/mobile-app/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jan 2023 07:23:56 GMT -->
 
 </html>
