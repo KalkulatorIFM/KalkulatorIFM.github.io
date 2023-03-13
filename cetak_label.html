@@ -62,7 +62,7 @@
 
                 <div class="form-group">
                     <label>Tanggal Terima :</label>
-                    <input type="date" class="form-control" name="tanggal" placeholder="" />
+                    <input type="date" class="form-control" name="tanggal" placeholder="Tanggal Terima" />
                 </div>
 
                 <div class="form-group">
@@ -446,11 +446,13 @@
             }
 
             $('#btn-print').click(function () {
+            	$(this).html('Waiting..').attr('disabled');
 	            printJS({
 	                printable: 'content-print', // the id
 	                type: 'html',
 	                targetStyles: ['*']
 	            });
+	            $(this).html('Print Label <i class="fas fa-print"></i>').removeAttr('disabled');
 	        })
         });
     </script>
