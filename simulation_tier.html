@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+
+    <style>
+        *{
+            font-size: 12px !important;
+        }
+        .text-center{
+            text-align: center;
+        }
+    </style>
+
+    <title>Kalkulator-IFM</title>
+</head>
+
+<body style="background-color: #ececec !important;" class="p-1">
+
+    <table border="1" width="100%" cellpadding="2" cellspacing="0">
+        <thead>
+            <tr>
+                <th class="text-center" width="30%">Product Desc.</th>
+                <th colspan="2" class="text-center" width="50%">TIER</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="1" id="rowspan_1" style="vertical-align: top;">
+                    <br>
+                    Product Item ( 1 ) = 
+                    <input type="text" class="jumlah p-1 bold text-center" data-index="1" data-myval="0" id="jumlah_1" placeholder="Total" style="background: none;">
+                    <input type="text" class="tumpangan p-1 bold text-center" data-index="1" data-myval="0" id="tumpangan_1" placeholder="Tumpangan" style="background: none;">
+                    <input type="text" class="per_tier p-1 bold text-center" data-index="1" data-myval="0" id="per_tier_1" placeholder="Per Tier" style="background: none;">
+                    <br><br>
+                </td>
+            </tr>
+            <tr class="content-1" style="border-bottom: 3px solid black !important;">
+            </tr>
+        </tbody>
+    </table>
+   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+       
+        $(document).ready(function() {
+
+            $('.jumlah').change(function () {  
+                var jumlah = parseInt($(this).val().replace(".", ""));
+
+                if (jumlah > 0) {
+                    $(this).val(jumlah.toLocaleString('ID'));
+                    $(this).attr('data-myval', jumlah);
+                } else {
+                    $(this).val(0);
+                    $(this).attr('data-myval', 0);
+                }
+                
+                if(parseInt($(this).attr('data-myval'))){
+                    calculationData($(this).data('index'));
+                }
+            })
+
+            $('.tumpangan').change(function () {  
+                var tumpangan = parseInt($(this).val().replace(".", ""));
+
+                if (tumpangan > 0) {
+                    $(this).val(tumpangan.toLocaleString('ID'));
+                    $(this).attr('data-myval', tumpangan);
+                } else {
+                    $(this).val(0);
+                    $(this).attr('data-myval', 0);
+                }
+                
+                if(parseInt($(this).attr('data-myval'))){
+                    calculationData($(this).data('index'));
+                }
+            })
+
+            $('.per_tier').change(function () {  
+                var per_tier = parseInt($(this).val().replace(".", ""));
+
+                if (per_tier > 0) {
+                    $(this).val(per_tier.toLocaleString('ID'));
+                    $(this).attr('data-myval', per_tier);
+                } else {
+                    $(this).val(0);
+                    $(this).attr('data-myval', 0);
+                }
+                
+                if(parseInt($(this).attr('data-myval'))){
+                    calculationData($(this).data('index'));
+                }
+            })
+
+            function calculationData(index){
+                var jumlah = $('#jumlah_'+index);
+                var tumpangan = $('#tumpangan_'+index);
+                var per_tier = $('#per_tier_'+index);
+
+
+                var content = $('tr.content-'+index);
+                var rowspan = $('#rowspan_'+index);
+
+                
+                if(parseInt(jumlah.attr('data-myval')) && parseInt(jumlah.attr('data-myval'))){
+
+                    var response = converter(parseInt(jumlah.attr('data-myval')) - parseInt(tumpangan.attr('data-myval')), parseInt(per_tier.attr('data-myval')));
+                    
+                    var set_rowspan = response.total_per_tier;
+                    if(response.sisa_tier){
+                        set_rowspan += 1;
+                    }
+    
+                    rowspan.attr('rowspan', set_rowspan + 2);
+    
+                    $('.tr-'+index).remove();
+                    
+                    var CONTENT_TIER = ``;
+                    var left = true;
+
+                    
+                    for(i = 1; i <= response.total_per_tier; i++){
+                        CONTENT_TIER += `
+                            <tr class="tr-${index}">
+                                <td>&nbsp;<b>${left == true ? per_tier.attr('data-myval') : ""}</b></td>
+                                <td>&nbsp;<b>${left == false ? per_tier.attr('data-myval') : ""}</b></td>
+                            </tr> 
+                        `;
+                        left = !left;
+                    }
+
+                    if(response.sisa_tier){
+                        CONTENT_TIER += `
+                            <tr class="tr-${index}">
+                                <td>&nbsp;<b>${left == true ? response.sisa_tier : ""}</b></td>
+                                <td>&nbsp;<b>${left == false ? response.sisa_tier : ""}</b></td>
+                            </tr> 
+                        `;
+                    }
+    
+                    $(CONTENT_TIER).insertAfter(content);
+                }
+            }
+
+            function converter(total, per_tier) {
+                if (total > 0 && per_tier > 0) {
+
+                    total = parseInt(total);
+                    per_tier = parseInt(per_tier);
+
+                    var result = Math.floor(total / per_tier);
+
+                    if ((result * per_tier) == total) {
+                        return { total_per_tier : result, sisa_tier : 0 };
+                    } else {
+                        var tot = (result * per_tier);
+                        total = total - tot;
+
+                        if (result) return { total_per_tier : result, sisa_tier : total};
+
+                        return { total_per_tier : 0, sisa_tier : total };
+                    }
+                } 
+                
+                return { total_per_tier : 0, sisa_tier : 0 };
+            }   
+        });
+    </script>
+</body>
+
+</html>
