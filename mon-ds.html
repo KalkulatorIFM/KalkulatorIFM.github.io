@@ -1,0 +1,3544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <title>Monitoring Rak DS</title>
+
+    <style>
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        text-align: center;
+        padding: 1px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        font-family: arial;
+        min-width: 70px !important;
+        height: 116px;
+      }
+
+      th {
+        height: 10px;
+      }
+
+      .headercol {
+        padding: 0px !important;
+      }
+
+      .headcol {
+        position: absolute;
+        width: 5em;
+        left: 0;
+        top: auto;
+        /*only relevant for first row*/
+        height: 118px;
+        padding: 1px;
+        padding-top: 3px;
+        padding-bottom: 1px;
+        background: #352f44;
+        color: white;
+        text-align: center;
+      }
+
+      .tableFixHead {
+        overflow: auto;
+        height: 100%;
+      }
+      .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
+
+      /* Just common table stuff. Really. */
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      button {
+        height: 75px;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none;
+        transition: 1s;
+      }
+
+      button:hover {
+        background-color: black;
+        color: white;
+      }
+
+      img:hover {
+        opacity: 0.7 !important;
+      }
+
+      td:hover {
+        background-color: #5c5470;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tableFixHead">
+      <table width="100%" border="1px">
+        <thead
+          style="
+            background-color: #352f44;
+            color: white;
+            position: sticky;
+            position: -webkit-sticky;
+          ">
+          <tr>
+            <th style="background-color: white; border: 1px solid white">
+              <select
+                name="Rak"
+                id="Rak"
+                style="padding: 10px; border: 1px solid black">
+                <option value="T">T</option>
+                <option value="U">U</option>
+              </select>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.1</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.2</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.3</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.4</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.5</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.6</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.7</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.8</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.9</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.10</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.11</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.12</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.13</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.14</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.15</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.16</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.17</h2>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="headcol">
+              <br />
+              level
+              <h2>8</h2>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>CHE</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>16 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>CHE</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>16 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">8 - T1</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>CHE</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>55 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>CHE</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>55 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <b>CHE</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>55 gr</small>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>BBQ</b>
+              <img src="./maxicorn-bbq.png" width="60px" alt="chiki ball" />
+              <small>140 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>BBQ</b>
+              <img src="./maxicorn-bbq.png" width="60px" alt="chiki ball" />
+              <small>140 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <b>BBQ</b>
+              <img src="./maxicorn-bbq.png" width="60px" alt="chiki ball" />
+              <small>140 gr</small>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>CHO</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>55 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>CHO</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>55 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <b>CHO</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>55 gr</small>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T5</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>CHO</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>200 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>CHO</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>200 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <b>CHO</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>200 gr</small>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T7</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T8</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T9</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T10</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T11</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T12</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T13</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T14</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T15</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button>8 - T16</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button>8 - T17</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="headcol">
+              <br />
+              level
+              <h2>7</h2>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T1</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T2</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T3</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T4</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T5</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>CHO</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>200 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <b>CHO</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>200 gr</small>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <b>CHO</b>
+              <img src="./chiki-balls.jpg" width="60px" alt="chiki ball" />
+              <small>200 gr</small>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T7</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T8</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T9</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T10</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T11</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T12</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T13</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T14</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T15</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T16</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">7 - T17</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="headcol">
+              <br />
+              level
+              <h2>6</h2>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T1</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T2</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T3</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T4</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T5</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T6</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T7</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T8</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T9</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T10</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T11</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T12</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T13</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T14</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T15</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T16</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">6 - T17</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="headcol">
+              <br />
+              level
+              <h2>5</h2>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T1</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T2</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T3</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T4</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T5</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T6</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T7</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T8</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T9</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T10</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T11</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T12</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T13</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T14</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T15</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T16</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">5 - T17</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="headcol">
+              <br />
+              level
+              <h2>4</h2>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T1</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T2</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T3</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T4</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T5</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T6</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T7</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T8</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T9</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T10</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T11</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T12</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T13</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T14</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T15</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T16</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">4 - T17</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="headcol">
+              <br />
+              level
+              <h2>3</h2>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T1</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T2</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T3</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T4</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T5</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T6</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T7</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T8</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T9</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T10</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T11</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T12</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T13</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T14</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T15</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T16</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">3 - T17</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="headcol">
+              <br />
+              level
+              <h2>2</h2>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T1</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T2</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T3</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T4</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T5</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T6</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T7</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T8</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T9</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T10</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T11</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T12</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T13</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T14</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T15</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T16</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">2 - T17</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="headcol">
+              <br />
+              level
+              <h2>1</h2>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T1</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T1</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T2</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T2</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T3</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T3</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T4</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T4</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T5</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T5</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T6</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T6</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T7</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T7</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T8</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T8</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T9</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T9</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T10</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T10</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T11</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T11</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T12</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T12</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T13</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T13</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T14</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T14</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T15</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T15</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T16</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+                border-right: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T16</button>
+            </td>
+
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T17</button>
+            </td>
+            <td
+              style="
+                border: 2px solid #5c5470;
+                border-bottom: 8px solid #5c5470;
+              ">
+              <button type="button">1 - T17</button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot
+          style="
+            background-color: #352f44;
+            color: white;
+            position: sticky;
+            position: -webkit-sticky;
+          ">
+          <tr>
+            <th style="background-color: white">
+              <br />
+              Level
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.1</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.2</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.3</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.4</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.5</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.6</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.7</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.8</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.9</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.10</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.11</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.12</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.13</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.14</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.15</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.16</h2>
+            </th>
+            <th
+              colspan="3"
+              class="headercol"
+              style="border-right: 8px solid white">
+              <h2>T.17</h2>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </body>
+</html>
