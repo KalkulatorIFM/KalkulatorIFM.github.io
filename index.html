@@ -121,7 +121,7 @@
                 <div class="form-group mt-4" id="content-beda-gis">
                     <label>Tambahan Beda GIS ( optional ) :</label>
                     <div class="input-group mb-2">
-                        <input type="text" autocomplete="off" class="form-control" placeholder="" aria-describedby="basic-addon2" name="beda_gis[]" />
+                        <input type="number" autocomplete="off" class="form-control" placeholder="" aria-describedby="basic-addon2" name="beda_gis[]" />
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button" id="add_beda_gis">
                   <i class="fa fa-plus"></i>
@@ -132,7 +132,7 @@
 
                 <div class="form-group mt-4">
                     <label>Jumlah CUTOFF / Dll ( optional ) :</label>
-                    <input type="text" autocomplete="off" name="cut_off" class="form-control" placeholder="" />
+                    <input type="number" autocomplete="off" name="cut_off" class="form-control" placeholder="" />
                 </div>
 
                 <button type="reset" class="btn btn-secondary btn-block btn-lg mt-4 mb-4" id="btn-reset">Reset</button>
@@ -244,7 +244,7 @@
             $("#add_beda_gis").click(function() {
                 var __CONTENT = `
                     <div class="input-group mb-2 reset-beda-gis">
-                        <input type="text" autocomplete="off"  class="form-control" placeholder="" aria-describedby="basic-addon2" name="beda_gis[]">
+                        <input type="number" autocomplete="off"  class="form-control" placeholder="" aria-describedby="basic-addon2" name="beda_gis[]">
                         <div class="input-group-append">
                             <button class="btn btn-danger remove_beda_gis" type="button"><i class="fa fa-trash"></i></button>
                         </div>
