@@ -30,7 +30,7 @@ jQuery.fn.extend({
       ClaseBtns1: "primary",
       ClaseBtns2: "success",
       ClaseBtns3: "warning",
-      ClaseColumnas: "col-md-3 col-xs-3 mbottom",
+      ClaseColumnas: "col-md-3 col-3 mbottom",
       ClaseBotones: "btn3d btn-lg btn-block btn btn-",
       txtSalida: idInstancia + "txtResultado",
       ClasetxtSalida: "form-control txtr",
