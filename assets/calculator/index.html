@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <script src="jquery-2.1.4.min.js"></script>
+
+    <link rel="stylesheet" href="prism.css" />
+    <script src="prism.js"></script>
+
+    <link rel="stylesheet" href="SimpleCalculadorajQuery.css" />
+    <script src="SimpleCalculadorajQuery.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-12">
+        <div id="micalc"></div>
+      </div>
+    </div>
+
+    <script>
+      $("#idCalculadora").Calculadora();
+      $("#micalc").Calculadora({
+        EtiquetaBorrar: "Clear",
+      });
+
+      $("#CalcOptoins").Calculadora({
+        EtiquetaBorrar: "Clear",
+        ClaseBtns1: "warning" /* Color Numbers*/,
+        ClaseBtns2: "success" /* Color Operators*/,
+        ClaseBtns3: "primary" /* Color Clear*/,
+        Botones: [
+          "+",
+          "-",
+          "*",
+          "/",
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          ".",
+          "=",
+        ],
+      });
+    </script>
+  </body>
+</html>

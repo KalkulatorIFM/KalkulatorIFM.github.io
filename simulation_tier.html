@@ -1,185 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.9, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous" />
 
     <style>
-        *{
-            font-size: 12px !important;
-        }
-        .text-center{
-            text-align: center;
-        }
+      * {
+        font-size: 12px !important;
+      }
+      .text-center {
+        text-align: center;
+      }
     </style>
 
+    <!-- Calculator -->
+    <link rel="stylesheet" href="./assets/calculator/prism.css" />
+    <script src="./assets/calculator/prism.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="./assets/calculator/SimpleCalculadorajQuery.css" />
+
     <title>Kalkulator-IFM</title>
-</head>
+  </head>
 
-<body style="background-color: #ececec !important;" class="p-1">
-
+  <body style="background-color: #ececec !important" class="p-1">
     <table border="1" width="100%" cellpadding="2" cellspacing="0">
-        <thead>
-            <tr>
-                <th class="text-center" width="30%">Product Desc.</th>
-                <th colspan="2" class="text-center" width="50%">TIER</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td rowspan="1" id="rowspan_1" style="vertical-align: top;">
-                    <br>
-                    Product Item ( 1 ) = 
-                    <input type="text" class="jumlah p-1 bold text-center" data-index="1" data-myval="0" id="jumlah_1" placeholder="Total" style="background: none;">
-                    <input type="text" class="tumpangan p-1 bold text-center" data-index="1" data-myval="0" id="tumpangan_1" placeholder="Tumpangan" style="background: none;">
-                    <input type="text" class="per_tier p-1 bold text-center" data-index="1" data-myval="0" id="per_tier_1" placeholder="Per Tier" style="background: none;">
-                    <br><br>
-                </td>
-            </tr>
-            <tr class="content-1" style="border-bottom: 3px solid black !important;">
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th class="text-center" width="30%">Product Desc.</th>
+          <th colspan="2" class="text-center" width="50%">TIER</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="1" id="rowspan_1" style="vertical-align: top">
+            <br />
+            Product Item ( 1 ) =
+            <input
+              type="text"
+              class="jumlah p-1 inputan bold text-center"
+              data-index="1"
+              data-myval="0"
+              data-type="jumlah"
+              data-status="false"
+              id="jumlah_1"
+              placeholder="Total"
+              style="background: none" />
+            <input
+              type="text"
+              class="tumpangan p-1 inputan bold text-center"
+              data-index="1"
+              data-myval="0"
+              data-type="tumpangan"
+              data-status="false"
+              id="tumpangan_1"
+              placeholder="Tumpangan"
+              style="background: none" />
+            <input
+              type="text"
+              class="per_tier p-1 inputan bold text-center"
+              data-index="1"
+              data-myval="0"
+              data-type="per_tier"
+              data-status="false"
+              id="per_tier_1"
+              placeholder="Per Tier"
+              style="background: none" />
+            <br /><br />
+          </td>
+        </tr>
+        <tr
+          class="content-1"
+          style="border-bottom: 3px solid black !important"></tr>
+      </tbody>
     </table>
-   
+
+    <!-- Modal -->
+    <div class="modal" tabindex="-1" id="modal-calculator">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="micalc"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+
     <script>
-       
-        $(document).ready(function() {
+      $(document).ready(function () {
+        $(".close").click(function () {
+          $("#modal-calculator").hide();
+        });
 
-            $('.jumlah').change(function () {  
-                var jumlah = parseInt($(this).val().replace(".", ""));
+        $("#micalc").Calculadora({
+          EtiquetaBorrar: "Clear",
+        });
 
-                if (jumlah > 0) {
-                    $(this).val(jumlah.toLocaleString('ID'));
-                    $(this).attr('data-myval', jumlah);
-                } else {
-                    $(this).val(0);
-                    $(this).attr('data-myval', 0);
-                }
-                
-                if(parseInt($(this).attr('data-myval'))){
-                    calculationData($(this).data('index'));
-                }
-            })
+        $(".jumlah").focus(function () {
+          $(".inputan").attr("data-status", "false");
+          $(this).attr("data-status", "true");
 
-            $('.tumpangan').change(function () {  
-                var tumpangan = parseInt($(this).val().replace(".", ""));
+          $("#modal-calculator").show();
 
-                if (tumpangan > 0) {
-                    $(this).val(tumpangan.toLocaleString('ID'));
-                    $(this).attr('data-myval', tumpangan);
-                } else {
-                    $(this).val(0);
-                    $(this).attr('data-myval', 0);
-                }
-                
-                if(parseInt($(this).attr('data-myval'))){
-                    calculationData($(this).data('index'));
-                }
-            })
+          if (parseInt($(this).val())) {
+            $("#micalctxtResultado").val(
+              parseInt($(this).val().replace(".", ""))
+            );
+          } else {
+            $("#micalctxtResultado").val("");
+          }
+        });
 
-            $('.per_tier').change(function () {  
-                var per_tier = parseInt($(this).val().replace(".", ""));
+        $(".tumpangan").focus(function () {
+          $(".inputan").attr("data-status", "false");
+          $(this).attr("data-status", "true");
 
-                if (per_tier > 0) {
-                    $(this).val(per_tier.toLocaleString('ID'));
-                    $(this).attr('data-myval', per_tier);
-                } else {
-                    $(this).val(0);
-                    $(this).attr('data-myval', 0);
-                }
-                
-                if(parseInt($(this).attr('data-myval'))){
-                    calculationData($(this).data('index'));
-                }
-            })
+          $("#modal-calculator").show();
 
-            function calculationData(index){
-                var jumlah = $('#jumlah_'+index);
-                var tumpangan = $('#tumpangan_'+index);
-                var per_tier = $('#per_tier_'+index);
+          if (parseInt($(this).val())) {
+            $("#micalctxtResultado").val(
+              parseInt($(this).val().replace(".", ""))
+            );
+          } else {
+            $("#micalctxtResultado").val("");
+          }
+        });
 
+        $(".per_tier").focus(function () {
+          $(".inputan").attr("data-status", "false");
+          $(this).attr("data-status", "true");
 
-                var content = $('tr.content-'+index);
-                var rowspan = $('#rowspan_'+index);
+          $("#modal-calculator").show();
 
-                
-                if(parseInt(jumlah.attr('data-myval')) && parseInt(jumlah.attr('data-myval'))){
+          if (parseInt($(this).val())) {
+            $("#micalctxtResultado").val(
+              parseInt($(this).val().replace(".", ""))
+            );
+          } else {
+            $("#micalctxtResultado").val("");
+          }
+        });
 
-                    var response = converter(parseInt(jumlah.attr('data-myval')) - parseInt(tumpangan.attr('data-myval')), parseInt(per_tier.attr('data-myval')));
-                    
-                    var set_rowspan = response.total_per_tier;
-                    if(response.sisa_tier){
-                        set_rowspan += 1;
-                    }
-    
-                    rowspan.attr('rowspan', set_rowspan + 2);
-    
-                    $('.tr-'+index).remove();
-                    
-                    var CONTENT_TIER = ``;
-                    var left = true;
+        $(".jumlah").change(function () {
+          calculationData($(this).data("index"));
+        });
 
-                    
-                    for(i = 1; i <= response.total_per_tier; i++){
-                        CONTENT_TIER += `
-                            <tr class="tr-${index}">
-                                <td style="text-align:center; font-size: 20px;"><b>${left == true ? per_tier.attr('data-myval') : ""}</b></td>
-                                <td style="text-align:center; font-size: 20px;"><b>${left == false ? per_tier.attr('data-myval') : ""}</b></td>
-                            </tr> 
-                        `;
-                        if(i % 5 == 0){
-                            left = !left;
-                        }
-                    }
+        $(".tumpangan").change(function () {
+          calculationData($(this).data("index"));
+        });
 
-                    if(response.sisa_tier){
-                        left = !left;
-                        CONTENT_TIER += `
-                            <tr class="tr-${index}">
-                                <td style="text-align:center; font-size: 20px;"><b>${left == true ? response.sisa_tier : ""}</b></td>
-                                <td style="text-align:center; font-size: 20px;"><b>${left == false ? response.sisa_tier : ""}</b></td>
-                            </tr> 
-                        `;
-                    }
-    
-                    $(CONTENT_TIER).insertAfter(content);
-                }
+        $(".per_tier").change(function () {
+          calculationData($(this).data("index"));
+        });
+
+        function calculationData(index) {
+          var jumlah = $("#jumlah_" + index);
+          var tumpangan = $("#tumpangan_" + index);
+          var per_tier = $("#per_tier_" + index);
+
+          var content = $("tr.content-" + index);
+          var rowspan = $("#rowspan_" + index);
+
+          if (
+            parseInt(jumlah.attr("data-myval")) &&
+            parseInt(jumlah.attr("data-myval"))
+          ) {
+            var response = converter(
+              parseInt(jumlah.attr("data-myval")) -
+                parseInt(tumpangan.attr("data-myval")),
+              parseInt(per_tier.attr("data-myval"))
+            );
+
+            var set_rowspan = response.total_per_tier;
+            if (response.sisa_tier) {
+              set_rowspan += 1;
             }
 
-            function converter(total, per_tier) {
-                if (total > 0 && per_tier > 0) {
+            rowspan.attr("rowspan", set_rowspan + 2);
 
-                    total = parseInt(total);
-                    per_tier = parseInt(per_tier);
+            $(".tr-" + index).remove();
 
-                    var result = Math.floor(total / per_tier);
+            var CONTENT_TIER = ``;
+            var left = true;
 
-                    if ((result * per_tier) == total) {
-                        return { total_per_tier : result, sisa_tier : 0 };
-                    } else {
-                        var tot = (result * per_tier);
-                        total = total - tot;
+            for (i = 1; i <= response.total_per_tier; i++) {
+              CONTENT_TIER += `
+                            <tr class="tr-${index}">
+                                <td style="text-align:center; font-size: 20px;"><b>${
+                                  left == true
+                                    ? per_tier.attr("data-myval")
+                                    : ""
+                                }</b></td>
+                                <td style="text-align:center; font-size: 20px;"><b>${
+                                  left == false
+                                    ? per_tier.attr("data-myval")
+                                    : ""
+                                }</b></td>
+                            </tr>
+                        `;
+              if (i % 5 == 0) {
+                left = !left;
+              }
+            }
 
-                        if (result) return { total_per_tier : result, sisa_tier : total};
+            if (response.sisa_tier) {
+              CONTENT_TIER += `
+                            <tr class="tr-${index}">
+                                <td style="text-align:center; font-size: 20px; color:red;"><b>${
+                                  left != true ? response.sisa_tier : ""
+                                }</b></td>
+                                <td style="text-align:center; font-size: 20px; color:red;"><b>${
+                                  left != false ? response.sisa_tier : ""
+                                }</b></td>
+                            </tr>
+                        `;
+            }
 
-                        return { total_per_tier : 0, sisa_tier : total };
-                    }
-                } 
-                
-                return { total_per_tier : 0, sisa_tier : 0 };
-            }   
-        });
+            $(CONTENT_TIER).insertAfter(content);
+          }
+        }
+
+        function converter(total, per_tier) {
+          if (total > 0 && per_tier > 0) {
+            total = parseInt(total);
+            per_tier = parseInt(per_tier);
+
+            var result = Math.floor(total / per_tier);
+
+            if (result * per_tier == total) {
+              return { total_per_tier: result, sisa_tier: 0 };
+            } else {
+              var tot = result * per_tier;
+              total = total - tot;
+
+              if (result) return { total_per_tier: result, sisa_tier: total };
+
+              return { total_per_tier: 0, sisa_tier: total };
+            }
+          }
+
+          return { total_per_tier: 0, sisa_tier: 0 };
+        }
+      });
     </script>
-</body>
 
+    <script src="./assets/calculator/SimpleCalculadorajQuery.js"></script>
+  </body>
 </html>
