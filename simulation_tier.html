@@ -21,13 +21,18 @@
       referrerpolicy="no-referrer" />
     <style>
       * {
-        font-size: 12px !important;
+        font-size: 14px !important;
       }
       .text-center {
         text-align: center;
       }
       body {
         position: absolute !important;
+      }
+      .txtr {
+        height: 120px !important;
+        font-size: 50px !important;
+        letter-spacing: 0.2rem;
       }
     </style>
 
@@ -46,8 +51,8 @@
     <table border="1" width="100%" cellpadding="2" cellspacing="0">
       <thead>
         <tr>
-          <th class="text-center" width="30%">Product Desc.</th>
-          <th colspan="2" class="text-center" width="50%">TIER</th>
+          <th class="text-center" width="20%">Product Desc.</th>
+          <th colspan="2" class="text-center" width="80%">TIER</th>
         </tr>
       </thead>
       <tbody>
@@ -63,8 +68,8 @@
               data-type="jumlah"
               data-status="false"
               id="jumlah_1"
-              placeholder="Total"
-              style="background: none" />
+              placeholder="Total Jumlah"
+              style="background: none; margin-top: 5px" />
             <input
               type="text"
               class="tumpangan p-1 inputan bold text-center"
@@ -74,7 +79,7 @@
               data-status="false"
               id="tumpangan_1"
               placeholder="Tumpangan"
-              style="background: none" />
+              style="background: none; margin-top: 15px" />
             <input
               type="text"
               class="per_tier p-1 inputan bold text-center"
@@ -84,7 +89,7 @@
               data-status="false"
               id="per_tier_1"
               placeholder="Per Tier"
-              style="background: none" />
+              style="background: none; margin-top: 5px" />
             <br /><br />
           </td>
         </tr>
@@ -100,6 +105,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title-calculator">Modal title</h5>
+            <h3 id="live-cal">0</h3>
             <button
               type="button"
               class="close"
@@ -112,9 +118,7 @@
             <div id="micalc"></div>
             <button
               type="button"
-              class="btn3d btn btn-secondary mt-3 btn-lg btn-block backspace">
-              Backspace
-              <br />
+              class="btn3d btn btn-dark mt-3 btn-lg btn-block backspace">
               <i class="fa fa-solid fa-arrow-left"></i>
             </button>
           </div>
@@ -138,7 +142,13 @@
       crossorigin="anonymous"></script>
 
     <script>
+      document.activeElement.blur();
+
       $(document).ready(function () {
+        $("input").focus(function () {
+          $(this).blur();
+        });
+
         $(".close").click(function () {
           $("#modal-calculator").hide();
         });
@@ -156,6 +166,8 @@
           var str = $("#micalctxtResultado").val();
           str = str.slice(0, -1);
           $("#micalctxtResultado").val(str);
+
+          $("#live-cal").html(eval(str.val()).toLocaleString("ID"));
         });
 
         $(".jumlah").focus(function () {
@@ -172,7 +184,7 @@
             $("#micalctxtResultado").val("");
           }
 
-          $(".modal-title-calculator").text("Total");
+          $(".modal-title-calculator").html("Total : &nbsp;");
         });
 
         $(".tumpangan").focus(function () {
@@ -188,7 +200,7 @@
           } else {
             $("#micalctxtResultado").val("");
           }
-          $(".modal-title-calculator").text("Tumpangan");
+          $(".modal-title-calculator").html("Tumpangan : &nbsp;");
         });
 
         $(".per_tier").focus(function () {
@@ -204,7 +216,7 @@
           } else {
             $("#micalctxtResultado").val("");
           }
-          $(".modal-title-calculator").text("Per Tier");
+          $(".modal-title-calculator").html("Per Tier : &nbsp;");
         });
 
         $(".jumlah").change(function () {
@@ -227,10 +239,7 @@
           var content = $("tr.content-" + index);
           var rowspan = $("#rowspan_" + index);
 
-          if (
-            parseInt(jumlah.attr("data-myval")) &&
-            parseInt(jumlah.attr("data-myval"))
-          ) {
+          if (parseInt(jumlah.attr("data-myval"))) {
             var response = converter(
               parseInt(jumlah.attr("data-myval")) -
                 parseInt(tumpangan.attr("data-myval")),
@@ -238,48 +247,56 @@
             );
 
             var set_rowspan = response.total_per_tier;
+
             if (response.sisa_tier) {
               set_rowspan += 1;
             }
-
-            rowspan.attr("rowspan", set_rowspan + 2);
 
             $(".tr-" + index).remove();
 
             var CONTENT_TIER = ``;
             var left = true;
 
+            if (parseInt(tumpangan.attr("data-myval"))) {
+              CONTENT_TIER += `
+                <tr class="tr-${index}">
+                    <td style="text-align:center; font-size: 27px; color:red;" colspan="2"><b>${parseInt(
+                      tumpangan.attr("data-myval")
+                    )}</b></td>
+                </tr>
+              `;
+              rowspan.attr("rowspan", set_rowspan + 3);
+            } else {
+              rowspan.attr("rowspan", set_rowspan + 2);
+            }
+
             for (i = 1; i <= response.total_per_tier; i++) {
               CONTENT_TIER += `
-                            <tr class="tr-${index}">
-                                <td style="text-align:center; font-size: 20px;"><b>${
-                                  left == true
-                                    ? per_tier.attr("data-myval")
-                                    : ""
-                                }</b></td>
-                                <td style="text-align:center; font-size: 20px;"><b>${
-                                  left == false
-                                    ? per_tier.attr("data-myval")
-                                    : ""
-                                }</b></td>
-                            </tr>
-                        `;
+                  <tr class="tr-${index}">
+                      <td style="text-align:center; font-size: 27px;"><b>${
+                        left == true ? per_tier.attr("data-myval") : ""
+                      }</b></td>
+                      <td style="text-align:center; font-size: 27px;"><b>${
+                        left == false ? per_tier.attr("data-myval") : ""
+                      }</b></td>
+                  </tr>
+              `;
+
               if (i % 5 == 0) {
                 left = !left;
               }
             }
 
             if (response.sisa_tier) {
+              left = !left;
+
               CONTENT_TIER += `
-                            <tr class="tr-${index}">
-                                <td style="text-align:center; font-size: 20px; color:red;"><b>${
-                                  left != true ? response.sisa_tier : ""
-                                }</b></td>
-                                <td style="text-align:center; font-size: 20px; color:red;"><b>${
-                                  left != false ? response.sisa_tier : ""
-                                }</b></td>
-                            </tr>
-                        `;
+                  <tr class="tr-${index}">
+                      <td style="text-align:center; font-size: 27px; color:red;" colspan="2"><b>${
+                        left != true ? response.sisa_tier : ""
+                      }</b></td>
+                  </tr>
+              `;
             }
 
             $(CONTENT_TIER).insertAfter(content);

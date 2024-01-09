@@ -12,19 +12,19 @@ jQuery.fn.extend({
         "1",
         "2",
         "3",
-        "+",
+        "*",
         "4",
         "5",
         "6",
-        "-",
+        "/",
         "7",
         "8",
         "9",
-        "*",
+        "+",
         ".",
         "0",
         "=",
-        "/",
+        "-",
       ],
       Signos: ["+", "-", "*", "/"],
       ClaseBtns1: "primary",
@@ -86,6 +86,7 @@ jQuery.fn.extend({
     $("." + NombreBotonesClase).click(function () {
       var vTecla = $(this).val();
       var salida = $("#" + op.txtSalida);
+
       if (vTecla == "=") {
         salida.val(eval(salida.val()));
 
@@ -123,6 +124,8 @@ jQuery.fn.extend({
         } else {
           salida.val(salida.val() + vTecla);
         }
+
+        $("#live-cal").html(eval(salida.val()).toLocaleString("ID"));
       }
     });
     $("#" + op.InputBorrar).click(function () {
