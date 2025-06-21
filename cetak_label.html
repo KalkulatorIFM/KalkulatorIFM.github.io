@@ -364,8 +364,8 @@
               text_2 = jumlah + " CAR";
               __CONTENT_LABEL_PRINT = `
                         	<div style="width: 100% !important; max-width: !important;">
-	                        	<div style="text-align: center; font-size: 8px; font-family: sans-serif;">
-                              <h1 style="font-size: 24px;">${bin}</h1>
+	                        	<div style="text-align: center; font-size: 20px; font-family: sans-serif;">
+                              <h1 style="font-size: 50px;">${bin}</h1>
 	                        		<p style="margin-top: -15px; margin-bottom: -5px;">${hour}${minutes}${seconds}${nama_produk.replaceAll(
                 " ",
                 "-"
@@ -373,13 +373,7 @@
 	                        		<p>LABEL FINISH GOOD <br> PT INDOFOOD FORTUNA MAKMUR</p>
 	                        		<table width="100%" style="text-align:left;" cellpaddin="0" cellspacing="0">
 	                        			<tr>
-	                        				<td width="18%">Produk</td>
-	                        				<td width="2%">:</td>
-	                        				<td>${nama_produk}</td>
-
-	                        				<td width="18%">Jumlah</td>
-	                        				<td width="2%">:</td>
-	                        				<td width="15%">${jumlah}</td>
+	                        				<td colspan="6" style="text-align:center; font-size: 60px; padding-bottom: 20px;">${nama_produk}</td>
 	                        			</tr>
 	                        			<tr>
 	                        				<td width="18%">Diterima</td>
@@ -460,23 +454,18 @@
                 }
 
                 __CONTENT_LABEL_PRINT += `
-	                        	<div style="width: 210px; max-width: 230px;">
-		                        	<div style="text-align: center; font-size: 8px; font-family: sans-serif;">
-		                        		<h1 style="font-size: 24px;">${bin}</h1>
+	                        		<div style="width: 100% !important; max-width: !important;">
+	                        	  <div style="text-align: center; font-size: 20px; font-family: sans-serif;">
+                              <h1 style="font-size: 50px;">${bin}</h1>
 		                        		<p style="margin-top: -15px; margin-bottom: -5px;">${hour}${minutes}${seconds}${nama_produk.replaceAll(
                   " ",
                   "-"
                 )}-${i}</p>
 		                        		<p>LABEL FINISH GOOD <br> PT INDOFOOD FORTUNA MAKMUR</p>
 		                        		<table width="100%" style="text-align:left;">
-		                        			<tr>
-		                        				<td width="18%">Produk</td>
-		                        				<td width="2%">:</td>
-		                        				<td>${nama_produk}</td>
-
-		                        				<td width="18%">Jumlah</td>
-		                        				<td width="2%">:</td>
-		                        				<td width="15%">${produk}</td>
+		                        		<tr>
+	                        				<td colspan="6" style="text-align:center; font-size: 60px; padding-bottom: 20px;">${nama_produk}</td>
+	                        			</tr>
 		                        			</tr>
 		                        			<tr>
 		                        				<td width="18%">Diterima</td>
@@ -543,6 +532,9 @@
 
         $("#btn-print").click(function () {
           $(this).html("Waiting..").attr("disabled");
+
+            printRawBT();
+
           printJS({
             printable: "content-print", // the id
             type: "html",
@@ -552,7 +544,26 @@
             .html('Print Label <i class="fas fa-print"></i>')
             .removeAttr("disabled");
         });
+
+        
       });
     </script>
+    <script>
+    function printRawBT() {
+      const strukText = document.getElementById('content-print').innerText;
+
+      // Tambah kode ESC/POS untuk cut
+      const cutCommand = '\x1D\x56\x00'; // ESC/POS full cut
+
+      const finalData = strukText + "\n\n\n" + cutCommand;
+
+      // Buka RawBT dengan data via URL
+      const encoded = encodeURIComponent(finalData);
+      const url = `rawbt:base64,${btoa(finalData)}`;
+      
+      // Redirect ke RawBT
+      window.location.href = url;
+    }
+  </script>
   </body>
 </html>
